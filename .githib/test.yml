@@ -1,0 +1,55 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: |
+          pip install poetry
+          poetry --version
+          poetry config virtualenvs.in-project true
+          poetry install -E style --no-root
+      - name: Static Analysis
+        run: poetry run make lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Install dependencies
+        run: |
+          poetry install 
+
+      - name: PyTest
+        run: |
+          poetry run pytest tests -v --cov=src
+      - name: Upload coverage
+        uses: codecov/codecov-action@v2
