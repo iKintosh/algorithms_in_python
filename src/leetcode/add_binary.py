@@ -1,4 +1,6 @@
 """
+# 67. Add binary
+
 The idea for this solution is not to use binary numbers in python
 and try to create solution complitely based on strings and figure out
 all possible cases we can face while adding up two binaries.

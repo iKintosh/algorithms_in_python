@@ -5,10 +5,11 @@ description = ""
 authors = ["Andrey Alekseev <ilekseev@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "algorithms_in_python"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+pytest = "^7.2.1"
 
 
 [build-system]
