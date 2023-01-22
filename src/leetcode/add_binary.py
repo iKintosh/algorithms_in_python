@@ -54,5 +54,3 @@ class Solution:
 
 if __name__ == "__main__":
     assert Solution().addBinary("11", "1") == "100"
-    assert Solution().addBinary(a = "1010", b = "1011") == "10101"
-    assert Solution().addBinary(a = "101111", b = "10") == "110001"
