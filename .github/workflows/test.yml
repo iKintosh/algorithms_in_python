@@ -30,6 +30,6 @@ jobs:
 
       - name: PyTest
         run: |
-          poetry run pytest tests -v --cov=src
+          poetry run pytest tests -v --cov=src --cov-report=xml
       - name: Upload coverage
         uses: codecov/codecov-action@v2
