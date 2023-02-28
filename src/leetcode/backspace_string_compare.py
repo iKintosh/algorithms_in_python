@@ -1,3 +1,11 @@
+"""844. Backspace String Compare
+https://leetcode.com/problems/backspace-string-compare/
+Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
+
+Note that after backspacing an empty text, the text will continue empty.
+"""
+
+
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
         s_ = self.apply_backspace(s)
@@ -15,9 +23,9 @@ class Solution:
             else:
                 backspace -= 1
                 continue
-        return ''.join(reversed(new_str))
-    
-    
+        return "".join(reversed(new_str))
+
+
 if __name__ == "__main__":
     assert Solution().backspaceCompare("ab#c", "ad#c") == True
     assert Solution().backspaceCompare("a#c", "b") == False
